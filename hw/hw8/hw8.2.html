@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Тест по философия</title>
+	<style>
+		h1{
+		    font-family: verdana;
+		}
+        input, label, p, div{
+            font-family: verdana;
+            font-size:14px;
+        }
+	</style>
+</head>
+<body>
+<h1>Тест по философия</h1>
+<form id="qform">
+
+<fieldset  id="radio">
+    <div> 1. Какъв е предметът на философията в широк смисъл? <br />
+        <input type="radio" name="question1"  value="0"> Връзка с Бог или друго висше същество<br />
+        <input type="radio" name="question1"  value="1"> Обща съществена характеристика на света, отношението на човека към природата и обществото<br />
+        <input type="radio" name="question1"  value="0"> Физическата реалност, нейните характеристики<br /><br />
+    </div>
+    <div> 2. Перспективата е: <br />
+        <input type="radio" name="question2" value="1"> Система от възгледи на човек за света като цяло, неговото място в света, смисъла на живота<br />
+        <input type="radio" name="question2"  value="0"> Системата от възгледи на групи хора, изразяващи техните интереси и отношение към социалната действителност<br />
+        <input type="radio" name="question2" value="0"> Система за предпочитания за зряла личност<br /><br />
+    </div>
+    <div> 3. Какъв е предметът на философията като наука? <br />
+        <input type="radio" name="question3"  value="1"> Основни принципи на битието<br />
+        <input type="radio" name="question3" value="0"> Произход и същност на ценностите<br />
+        <input type="radio" name="question3"  value="0"> Принципи на развитие на Вселената<br />
+    </div>
+    <div> 4. Кои философи са основните представители на екзистенциализма? <br />
+        <input type="radio" name="question4"  value="0"> Камю, Фройд, Флоренски<br />
+        <input type="radio" name="question4" value="0"> Сартр, Шпенглер, Шелинг<br />
+        <input type="radio" name="question4"  value="1"> Камю, Сартр, Киркегор<br />
+    </div>
+    <div> 5. Каква е хронологичната рамка за развитието на античната философия? <br />
+        <input type="radio" name="question5"  value="1"> края на 7 век пр.н.е д. - VI век. н. д.<br />
+        <input type="radio" name="question5" value="0"> края на 1 век пр.н.е д. - VI век. н. д.<br />
+        <input type="radio" name="question5"  value="0"> началото на 2 век пр.н.е д. - 5 век н. д.<br />
+    </div>
+    <div> 6. Какъв подраздел на философията изучава моралните ценности и моралните норми? <br />
+        <input type="radio" name="question6"  value="0"> Аксиология<br />
+        <input type="radio" name="question6" value="0"> Гносеология<br />
+        <input type="radio" name="question6"  value="1"> Етика<br />
+    </div>
+    <div> 7. Каква е особеността на древната източна философия?  <br />
+        <input type="radio" name="question7"  value="1"> Достъпът до разбиране на света е възможен само чрез знание<br />
+        <input type="radio" name="question7" value="0"> Възпяване на достойнството на човека като личност<br />
+        <input type="radio" name="question7"  value="0"> Основава се на митологични представи за света и човека<br />
+    </div>
+</fieldset>
+
+<fieldset  id="text">
+        <label for="q1"> 8. Какво означава терминът "философия"?</label> <br /><br />
+        <input type="text" name="open" id="q1"><br><br>
+</fieldset>
+
+<br /><br />
+
+<input type="submit" value="Брой точки"><br /><br />
+<label>Резултат:</label> <div id="grade"></div>
+</form>
+
+<script>
+
+      var qform = document.getElementById("qform");
+	  var qs_open= document.getElementsByName("open");
+	  var num_open_questions=qs_open.length;
+      var ans_open=["Любов към Мъдростта"];
+      
+      var qs_radio= document.getElementById("radio").children;
+      var num_radio_questions=qs_radio.length;
+   
+    
+  	  var num_questions=num_open_questions+num_radio_questions;
+      var grade=document.getElementById("grade");
+	  
+	  qform.addEventListener("submit", function(event){
+	               event.preventDefault();
+	               var sum=0;
+				   var grade_HTML="";
+				  
+				   for(var i=0; i<num_open_questions; i++){
+				     if(qs_open[i].value===ans_open[i]) sum+=1;
+	               }
+
+	    var sel_radio =document.querySelectorAll('input[type=radio]:checked');
+
+		for(let i=0; i<sel_radio.length; i++){
+            sum+=parseFloat(sel_radio[i].value);
+		}
+
+	 var points=Math.ceil(sum);
+	 grade_HTML=`<meter min="0" max="${num_questions}"
+  	 value = "${points}"></meter>
+	 ${points} точки от ${num_questions} възможни`  ;     	 
+      grade.innerHTML = grade_HTML;
+    }, radio);	 
+
+</script>
+</body>
+</html>
