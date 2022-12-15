@@ -12,11 +12,15 @@
 <head>
     <title>Course</title>
 </head>
-<body>
+<body style="margin-top: 10%;">
+    <center>
     <h2>Title: <?= $product['title'] ?></h2>
     <h4>Price: <?= $product['price'] ?></h4>
     <p>Description: <?= $product['description'] ?></p>
     <p>Date: <?= $product['date'] ?></p>
-    <hr>
+    <form action="/VadimSI447_courses_pl" method="post">
+    <button type="submit">Return</button>
+    </form>
+    </center>
 </body>
 </html>
