@@ -25,6 +25,7 @@ require_once 'config/connect.php';
     }
 </style>
 <body>
+    <hr>
     <table>
         <tr>
             <th>ID</th>
@@ -57,6 +58,8 @@ require_once 'config/connect.php';
             }
         ?>
     </table>
+
+    <!-- Add -->
     <h3>Add new course</h3>
     <form action="vendor/create.php" method="post">
         <p>Title</p>
@@ -66,8 +69,26 @@ require_once 'config/connect.php';
         <p>Price</p>
         <input type="number" name="price">
         <p>Date</p>
-        <input type="text" name="date" value="yy-mm-dd"> <br> <br>
-        <button type="submit">Add new course
+        <input type="date" name="date" value="yy-mm-dd"> <br> <br>
+        <button type="submit">Add new course</button>
     </form>
+    <hr>
+
+    <!-- find by ID -->
+    <h3>Find By ID</h3>
+    <form action="vendor/findByID.php" method="post">
+        <input type="number" name="result_id" value="<?$product['id']?>">
+        <button type="submit">Find</button>
+    </form>
+    <hr>
+
+    <!-- find by Date -->
+    <h3>Find By Date</h3>
+    <form action="vendor/findByDate.php" method="post">
+        <input type="date" name="result_date" value="yy-mm-dd">
+        <button type="submit">Find</button>
+    </form>
+    <hr>
 </body>
 </html>
+
