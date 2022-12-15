@@ -16,16 +16,17 @@ require_once '../config/connect.php';
     }
 
     th {
-        background: #606060;
-        color: #fff;
+        background: #72a4d6;
+        color: black;
     }
 
     td {
-        background: #b5b5b5;
+        background: #82d2fa;
     }
 </style>
 <body>
     <hr>
+    <center>
     <table>
         <tr>
             <th>ID</th>
@@ -58,5 +59,6 @@ require_once '../config/connect.php';
     <form action="/VadimSI447_courses_pl" method="post">
     <button type="submit">Return</button>
     </form>
+    </center>
 </body>
 </html>
